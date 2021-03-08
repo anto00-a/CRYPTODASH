@@ -1,0 +1,66 @@
+.chart_container{
+    width: 65%;
+    height: 50%;
+    //border: 1px solid green;
+    margin: 20px;
+    background-color: #1E1C44;
+    border-radius: 15px;
+    font-weight: 600;
+    .header{
+        height: 13%;
+        color: rgb(118, 110, 128);
+        display: flex;
+        justify-content: flex-start;
+        position: relative;
+        .currency{
+            width: 40%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            svg{
+                margin-left: 23px;
+                &:hover{
+                    color: #14B6E4;
+                    cursor: pointer;
+                    transition: 1s;
+                }
+            }
+            .currency_name{
+                display: flex;
+                align-items: center;
+                
+            }
+            .percentage{
+                display: flex;
+                align-items: center;
+                //.rotate{transform: scaleX(-1)}
+            }
+            .red{color: red;}
+            .green{color: green;}
+            p{
+                font-size: 18px;
+            }
+            .icon{
+                width: 26px;
+                height: 23px;
+                //border: 1px solid red;
+                margin-right: 10px;
+                img{width: 100%;height: 100%; }
+            }
+        }
+        table{
+            width: 40%;
+            height: 100%;
+            position: absolute;
+            right: 0;
+            th,td{
+                width: 50%;
+                text-align: center;
+            }
+        }
+    }
+    .chart{
+        height: 83%;
+    }
+}

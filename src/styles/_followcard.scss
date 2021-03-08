@@ -1,0 +1,56 @@
+
+.follow_card{
+    //border: 1px solid red;
+    width: 30%;
+    height: 120px;
+    background-color: #1E1C44;
+    border-radius: 15px;
+    font-weight: 600;
+    color: #766e80;
+}
+/*.follow_card{
+    height: 70%;
+    width: 45%;
+    background-color: #1E1C44;
+    border-radius: 15px;
+    overflow: scroll;
+    font-weight: 600;
+    color: #766e80;
+    .header{
+        height: 10%;
+        width: 90%;
+    }
+    .followed_container{
+        
+        .field{
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            .icon{
+                width: 26px;
+                height: 23px;
+                //border: 1px solid red;
+                margin-left: 12px;
+                background-image: url('../assets/bitcoin.svg');
+                background-position: center;
+                background-size: contain;
+                background-repeat: no-repeat;
+            }
+            .name{
+                font-size:inherit;
+                margin-left: -12px;
+                //color: white;
+            }
+            p{
+                width: 33.33%; 
+                text-align: center;
+                font-size: 14px;
+                //color: gray;
+            }
+            .percentage{
+                color: green;
+                font-weight: 600;
+            }
+        }
+    }
+}*/

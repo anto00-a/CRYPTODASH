@@ -1,0 +1,18 @@
+.home{
+    //border: 1px solid yellow;
+    width: 80%;
+    height: 90%;
+    position: absolute;
+    left: 17%;
+    top: 10%;
+    .card_container{
+        width: 65%;
+        //border: 1px solid red;
+        margin: 20px;
+        height: 43%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+}

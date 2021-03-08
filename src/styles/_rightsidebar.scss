@@ -1,0 +1,76 @@
+.sidebar_r{
+    //border: 1px solid red;
+    height: 89%;
+    width: 30%;
+    position: absolute;
+    top: 20px;
+    right: 0;
+    background-color: #1E1C44;
+    overflow: scroll;
+    color: rgb(118, 110, 128);
+    font-weight: 600;
+    border-radius: 15px;
+    &::-webkit-scrollbar{
+        display: none;
+    }
+    .legend{
+        height: 7%;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        padding-left: 12px;
+    }
+    .currency_list{
+        .green{color: green;}
+        .red{color: red;}
+        .field{
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            animation: start 1s ;
+            &:hover{
+                background-color: #17173B;
+                cursor: pointer;
+                transition: 0.5s;
+            }
+            .icon{
+                width: 26px;
+                height: 23px;
+                margin-left: 12px;
+                img{width: 100%;height: 100%;}
+            }
+            .UPDATE{
+                animation: update 0.2s 0.5s;
+            }
+            .name{
+                font-size:inherit;
+                margin-left: -12px;
+                //color: white;
+            }
+            p{
+                width: 33.33%; 
+                text-align: center;
+                font-size: 14px;
+                //color: gray;
+            }
+            .percentage{
+                //color: green;
+                font-weight: 600;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                position: relative;
+                
+            }
+        }
+    }
+}
+
+@keyframes update{
+    from{color: white;}
+    to{color: inherit;}
+}
+@keyframes start{
+    from{opacity: 0;}
+    to{opacity: 1;}
+}
