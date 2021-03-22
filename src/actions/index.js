@@ -14,11 +14,24 @@ export const noUpdate = (id) => {
 export const follow = (data) => {
     return{
         type: 'FOLLOWED',
-        payload: data
+        /*payload: {
+            data:data
+        }*/payload:data,
     }
 }
-export const unFollow = () => {
+export const unFollow = (id) => {
     return{
-        type: 'UNFOLLOW'
+        type: 'UNFOLLOW',
+        payload: id
     }
 }
+
+
+export const isLogged = (name) => {
+    return{
+        type: 'ISLOGGED',
+        payload: name
+    }
+}
+
+

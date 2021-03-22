@@ -1,8 +1,9 @@
 .sidebar_l{
     height: 100vh;
-    background-color: #1E1C44;
+    //background-color: #1E1C44;
+    background-color: #262626;
     width: 15%;
-    color: rgb(118, 110, 128);
+    //color: rgb(118, 110, 128);
     font-weight: 600;
     .profile{
         height: 33.33%;
@@ -15,7 +16,12 @@
         height: 33.33%;
         ul{
             padding-left: 20px;
+            a{
+                text-decoration: none;
+            }
             li{
+                color: lightgrey;
+                //color: rgb(118, 110, 128);
                 display: flex;
                 align-items: center;
                 &:hover{
@@ -37,6 +43,11 @@
         .exit{
             display: flex;
             align-items: center;
+            &:hover{
+                color: #14B6E4;
+                transition: 1s;
+                cursor: pointer;
+            }
             p{
                 margin-left: 6px;
             }

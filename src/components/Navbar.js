@@ -9,9 +9,7 @@ function Navbar(){
     return(
         <div className='navbar'>
             <h1>CRYPTODASH</h1>
-            <button>
-                <SearchIcon/>
-            </button>
+            
         </div>
     )
 }

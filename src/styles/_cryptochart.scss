@@ -3,12 +3,12 @@
     height: 50%;
     //border: 1px solid green;
     margin: 20px;
-    background-color: #1E1C44;
+    background-color: #262626;
     border-radius: 15px;
     font-weight: 600;
     .header{
         height: 13%;
-        color: rgb(118, 110, 128);
+        //color: rgb(118, 110, 128);
         display: flex;
         justify-content: flex-start;
         position: relative;
@@ -36,8 +36,8 @@
                 align-items: center;
                 //.rotate{transform: scaleX(-1)}
             }
-            .red{color: red;}
-            .green{color: green;}
+            //.red{color: red;}
+            //.green{color: green;}
             p{
                 font-size: 18px;
             }
@@ -63,4 +63,7 @@
     .chart{
         height: 83%;
     }
+}
+.is_fav{
+    color: goldenrod;
 }

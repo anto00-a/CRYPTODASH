@@ -9,14 +9,19 @@ import axios from 'axios';
 
 
 
+
 function CryptoChart(){
     const [price,setPrice] = useState([]);
     const [date,setDate] = useState([]);
     const [cap,setCap] = useState([]);
     const [volume,setVolume] = useState([])
+    const [disable,setDisable] = useState('usable')
     const dispatch = useDispatch();
     const info = useSelector (state => state.setData);
     const idCoin = useSelector(state => state.setId);
+    const id = useSelector(state=> state.followCrypto)
+    
+
 
     function timeConverter(UNIX_timestamp){
         var a = new Date(UNIX_timestamp);
@@ -24,10 +29,17 @@ function CryptoChart(){
         var year = a.getFullYear();
         var month = months[a.getMonth()];
         var date = a.getDate();
-        var time = date + '/' + month + '/' + year;
+        var time = date + '/' + month /*+ '/' + year*/;
         return time;
     }
-
+    
+    const addToFavorite = () => {
+        
+        dispatch(follow(info));
+        /*const fav = document.getElementById('fav');
+        fav.classList.add('is_fav')*/
+    }
+    
     useEffect(() => {
         const getData = () => {
             const URL = `https://api.coingecko.com/api/v3/coins/${idCoin}/market_chart?vs_currency=usd&days=30&interval=daily`
@@ -37,27 +49,25 @@ function CryptoChart(){
                 setDate(res.data.prices.map((date)=> {return timeConverter(date[0])}))
                 setCap(Math.floor(res.data.market_caps[30][1]));
                 setVolume(Math.floor(res.data.total_volumes[30][1]));
-                console.log(res.data)
+                
             })
             .catch(err=>console.log(err))
         }
-        getData();
-    },[idCoin])
+        getData()
+        
+           
+    },[idCoin,info])
     
-
-    const addToFavorite = () => {
-        dispatch(follow({
-            item:info,
-            done:false,
-            id: info.symbol
-        }));
+    function numberWithCommas(x) {
+        return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     }
+    
 
     return(
         <div className='chart_container'>
             <div className='header'>
                 <div className='currency'>
-                    <BookmarkIcon onClick={addToFavorite}/>
+                        <BookmarkIcon id='fav' onClick={addToFavorite}/>
                     <div className='currency_name'>
                         <div className='icon'><img src={info.icon}></img></div>
                         <p>{info.symbol}</p>
@@ -65,7 +75,7 @@ function CryptoChart(){
                     <p className='value'>${info.value}</p>
                         
                     {info.percentage < 0 ? <div className='percentage red'><p>{info.percentage}%</p><TrendingDownIcon/></div> :
-                     <div className='percentage green'><p>{info.percentage}%</p><TrendingUpIcon/></div>
+                     <div className='percentage green'><p>+{info.percentage}%</p><TrendingUpIcon/></div>
                     }
                     
                     
@@ -79,8 +89,8 @@ function CryptoChart(){
                     </thead>
                     <tbody>
                         <tr>
-                            <td>${cap}</td>
-                            <td>${volume}</td>
+                            <td>${numberWithCommas(cap)}</td>
+                            <td>${numberWithCommas(volume)}</td>
                         </tr>
                     </tbody>
                     
@@ -109,8 +119,19 @@ function CryptoChart(){
                         scales:{
                             yAxes:[
                                 {
+                                    gridLines:{
+                                        display:false
+                                    },
                                     ticks: {
-                                        min: 0,
+                                        //min: 0,
+                                        //beginAtZero:true
+                                    }
+                                }
+                            ],
+                            xAxes:[
+                                {
+                                    gridLines:{
+                                        display:false
                                     }
                                 }
                             ]

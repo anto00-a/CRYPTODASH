@@ -1,25 +1,18 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
 import CryptoChart from '../components/CryptoChart';
-import FollowCard from '../components/FollowCard';
+import FollowContainer from '../components/FollowContainer';
 import RightSidebar from '../components/RightSidebar';
-
+import LeftSidebar from '../components/LeftSidebar';
 
 
 
 function Home(){
-    const favoriteList = useSelector(state => state.followCrypto);
-    console.log(favoriteList.favoriteList)
-    
-    
+       
     return(
         <div className='home'>
+            
             <CryptoChart/>
-            <div className='card_container'>
-                {favoriteList.favoriteList.map(card =>( 
-                    <FollowCard key={card.id} value={card.item.value}/>
-                ))}
-            </div>
+            <FollowContainer/>
             <RightSidebar/>
         </div>
     )

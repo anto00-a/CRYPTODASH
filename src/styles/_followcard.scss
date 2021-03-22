@@ -1,56 +1,100 @@
 
 .follow_card{
     //border: 1px solid red;
-    width: 30%;
-    height: 120px;
-    background-color: #1E1C44;
+    width: 31%;
+    height: 165px;
+    //background-color: #1E1C44;
+    background-color: #262626;
     border-radius: 15px;
     font-weight: 600;
-    color: #766e80;
-}
-/*.follow_card{
-    height: 70%;
-    width: 45%;
-    background-color: #1E1C44;
-    border-radius: 15px;
-    overflow: scroll;
-    font-weight: 600;
-    color: #766e80;
+    //color: #766e80;
+    position: relative;
+    animation: add 1s;
+    margin: 10px;
     .header{
-        height: 10%;
-        width: 90%;
-    }
-    .followed_container{
-        
-        .field{
+        display: flex;
+        justify-content: space-between;
+        padding: 0 10px;
+        align-items: center;
+        height: 15%;
+        margin-top: 10px;
+        &:hover{
+            cursor: pointer;
+        }
+        .header_l{
             display: flex;
-            justify-content: space-around;
             align-items: center;
             .icon{
                 width: 26px;
                 height: 23px;
-                //border: 1px solid red;
-                margin-left: 12px;
-                background-image: url('../assets/bitcoin.svg');
-                background-position: center;
-                background-size: contain;
-                background-repeat: no-repeat;
-            }
-            .name{
-                font-size:inherit;
-                margin-left: -12px;
-                //color: white;
+                margin-right: 10px;
+                img{width: 100%;height: 100%; }
             }
             p{
-                width: 33.33%; 
-                text-align: center;
-                font-size: 14px;
-                //color: gray;
-            }
-            .percentage{
-                color: green;
-                font-weight: 600;
+                display: flex;
+                align-items: center;
+                svg{
+                    margin: 0 3px;
+                }
             }
         }
+        .percentage{
+            display: flex;
+            align-items: center;
+            
+        }
     }
-}*/
+    .followed_container{
+        width: 100%;
+        height: 83%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        //align-items: center;
+        .chart{
+            height: 70%;
+            width: 90%;   
+            margin: auto; 
+            canvas{
+                height: 80%!important;
+                width: 75%!important;
+                margin: auto;
+            }
+        }
+        p{
+            margin: 5px 0 0 20px;
+            height: 15%;
+            font-size: 18px;
+            //font-weight: 600;
+            //color: darkgray;
+        }
+
+    }
+    .delete_btn{
+        position: absolute;
+        bottom: 4px;
+        right: 10px;
+        width: 20px;
+        height: 30px;
+        &:hover{
+            cursor: pointer;
+            color: rgb(179, 9, 9);
+            transition: 1s;
+        }
+        svg{
+            width: 100%;
+            height: 100%;
+        }
+        
+    }
+}
+
+
+@keyframes add {
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}

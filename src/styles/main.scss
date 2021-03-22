@@ -4,21 +4,25 @@
 @import 'cryptochart';
 @import 'rightsidebar';
 @import 'home';
-
+@import 'newscard';
+@import 'login';
 
 body{
+    .red{color: red;}
+    .green{color: green;}
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     height: 100vh;
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    background-color: #17173B;
+    //background-color: #17173B;
+    background-color: #161616;
     //background-color: #05F2F2;
     //background-color: #05DBF2;
     //background-color: #262559;
     //background-color: #352C73;
     .App{
         height: 100vh;
-        color: rgb(62, 52, 73);
+        color: lightgrey//rgb(62, 52, 73);
     }
 }

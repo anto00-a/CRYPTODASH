@@ -3,18 +3,24 @@ import Home from './pages/Home';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import Navbar from './components/Navbar'
 import LeftSidebar from './components/LeftSidebar';
+import News from './pages/News';
+import Login from './pages/Login';
+import { useSelector } from 'react-redux';
 
 
 
 function App() {
+  
   return (
     <div className="App">
       <Navbar/>
       <LeftSidebar/>
       <Switch>
+        <Route exact path='/Login' component={Login}/>
         <Route exact path='/Home' component={Home}/>
+        <Route exact path='/News' component={News}/>
         <Route exact path='/'>
-          <Redirect to='/Home'></Redirect>
+          <Redirect to='/Login'></Redirect>
         </Route>
       </Switch>
     </div>
