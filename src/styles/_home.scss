@@ -4,19 +4,25 @@
     height: 90%;
     position: absolute;
     left: 17%;
-    top: 10%;
-    .card_container{
-        width: 65%;
-        //border: 1px solid red;
-        margin: 20px;
-        height: 43%;
-        display: flex;
-        //justify-content: space-between;
-        align-items: center;
-        flex-wrap: wrap;
-        overflow: scroll;
-        &::-webkit-scrollbar{
-            display: none;
-        }
+    top: 7%;
+}
+
+@media screen and (max-width:1400px){
+    .home{
+        left: 8%!important;
+        //position: relative!important;
+        margin: auto;
+        width: 90%!important;
+        //top: 0%!important;
+    }
+    .overlay{
+        filter: blur(4px);
+    }
+}
+
+
+@media screen and (max-width: 600px){
+    .home{
+        left: 5%!important;
     }
 }

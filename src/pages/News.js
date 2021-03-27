@@ -15,6 +15,10 @@ const News = () => {
         .catch(err=>console.log(err));
     }
     useEffect(()=>{
+        if(window.location.pathname === '/News'){
+            let hamburger = document.querySelector('.hamburger');
+            hamburger.classList.add('display')
+        }
         getNews();
     },[])
     return (

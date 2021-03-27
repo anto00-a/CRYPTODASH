@@ -5,11 +5,13 @@ import Navbar from './components/Navbar'
 import LeftSidebar from './components/LeftSidebar';
 import News from './pages/News';
 import Login from './pages/Login';
-import { useSelector } from 'react-redux';
-
+import PrivateRoute from './components/PrivateRoute';
+import {useSelector} from 'react-redux';
+//import RightSidebar from './components/RightSidebar';
 
 
 function App() {
+  const status = useSelector(state=>state.isLogged)
   
   return (
     <div className="App">
@@ -17,12 +19,13 @@ function App() {
       <LeftSidebar/>
       <Switch>
         <Route exact path='/Login' component={Login}/>
-        <Route exact path='/Home' component={Home}/>
+        <PrivateRoute path='/Home' component={Home} isAuth={status.isLog}/>
         <Route exact path='/News' component={News}/>
         <Route exact path='/'>
           <Redirect to='/Login'></Redirect>
         </Route>
       </Switch>
+      
     </div>
   );
 }

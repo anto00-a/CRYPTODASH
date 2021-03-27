@@ -4,7 +4,7 @@
     //border: 1px solid green;
     margin: 20px;
     background-color: #262626;
-    border-radius: 15px;
+    //border-radius: 15px;
     font-weight: 600;
     .header{
         height: 13%;
@@ -12,6 +12,8 @@
         display: flex;
         justify-content: flex-start;
         position: relative;
+        box-shadow: 0px 0px 4px 0px #000000;
+        font-size: 13px;
         .currency{
             width: 40%;
             height: 100%;
@@ -34,12 +36,17 @@
             .percentage{
                 display: flex;
                 align-items: center;
-                //.rotate{transform: scaleX(-1)}
+                svg{
+                    margin-left:0 ;
+                }
             }
-            //.red{color: red;}
-            //.green{color: green;}
+            
             p{
-                font-size: 18px;
+                font-size: 15px;
+            }
+            .value{
+                font-size: 20px;
+                color: white;
             }
             .icon{
                 width: 26px;
@@ -62,8 +69,67 @@
     }
     .chart{
         height: 83%;
+        position: relative;
+    }
+    .filter_container{
+        height: 50px;
+        background-color: #262626;
+        .filter{
+            display: flex;
+            font-size: 12px;
+            width: 50%;
+            justify-content: space-around;
+            color: lightgray;
+            height: 100%;
+            align-items: center;
+            p{
+                &:hover{
+                    cursor: pointer;
+                    font-size: 13px;
+                    transition: 0.3s;
+                    color: goldenrod;
+                }
+            }
+        }
     }
 }
 .is_fav{
     color: goldenrod;
+}
+
+
+@media screen and (max-width:1400px){
+    .chart_container{
+        width: 90%!important;
+        margin: auto!important;
+        //margin-top: 75px!important;
+    }
+    
+}
+@media screen and (max-width:969px){
+    .currency{
+        width: 50%!important;
+    }
+}
+
+@media screen and (max-width:600px){
+    
+    .chart_container{
+        width: 100%!important;
+        .currency{
+            width: 85%!important;
+            svg{
+                margin-left: 10px!important;
+            }
+        }
+        table{
+            top: 48vh!important;
+            background-color: #262626!important;
+            width: 100%!important;
+        }
+        .filter{
+            width: 100%!important;
+            font-size: 10px!important;
+        }
+    }
 }

@@ -1,91 +1,149 @@
-
-.follow_card{
-    //border: 1px solid red;
-    width: 31%;
-    height: 165px;
-    //background-color: #1E1C44;
-    background-color: #262626;
-    border-radius: 15px;
-    font-weight: 600;
-    //color: #766e80;
+.card_container{
+    width: 65%;
+    border-bottom: 0;
+    margin: 50px 0 0 20px;
+    height: 43%;
+    padding: 0;
+    flex-wrap: wrap;
     position: relative;
-    animation: add 1s;
-    margin: 10px;
-    .header{
+    background-color: #262626;
+    .header_c{
+        border-bottom: 1px solid black;
+        height: 13%;
+        width: 100%;
+        font-size: 20px;
+        font-weight: 600;
         display: flex;
-        justify-content: space-between;
-        padding: 0 10px;
         align-items: center;
-        height: 15%;
-        margin-top: 10px;
-        &:hover{
-            cursor: pointer;
+        background-color: #262626;
+        p{padding-left: 10px;}
+    }
+    .container{
+        height: 85%;
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        overflow: scroll;
+        margin: 0;
+        &::-webkit-scrollbar{
+            display: none;
         }
-        .header_l{
+    }
+    .follow_card{
+        width: 33.33%;
+        height: 165px;
+        background-color: #262626;
+        box-shadow: 0px 0px 4px 0px #000000;
+        font-weight: 600;
+        position: relative;
+        animation: add 1s;
+        margin: 0;
+        .header{
             display: flex;
+            justify-content: space-between;
+            padding: 0 10px;
             align-items: center;
-            .icon{
-                width: 26px;
-                height: 23px;
-                margin-right: 10px;
-                img{width: 100%;height: 100%; }
+            height: 15%;
+            margin-top: 10px;
+            font-size: 13px;
+            &:hover{
+                cursor: pointer;
             }
-            p{
+            .header_l{
                 display: flex;
                 align-items: center;
-                svg{
-                    margin: 0 3px;
+                .icon{
+                    width: 26px;
+                    height: 23px;
+                    margin-right: 10px;
+                    img{width: 100%;height: 100%; }
+                }
+                p{
+                    display: flex;
+                    align-items: center;
+                    svg{
+                        margin: 0 3px;
+                    }
                 }
             }
+            .percentage{
+                display: flex;
+                align-items: center;
+                
+            }
         }
-        .percentage{
+        .followed_container{
+            width: 100%;
+            height: 83%;
             display: flex;
-            align-items: center;
+            flex-direction: column;
+            justify-content: center;
+            //align-items: center;
+            .chart{
+                height: 70%;
+                width: 90%;   
+                margin: auto; 
+                canvas{
+                    height: 80%!important;
+                    width: 75%!important;
+                    margin: auto;
+                }
+            }
+            p{
+                margin: 5px 0 0 20px;
+                height: 20%;
+                font-size: 20px;
+                color: white;
+                //font-weight: 600;
+                //color: darkgray;
+            }
+
+        }
+        .delete_btn{
+            position: absolute;
+            bottom: 4px;
+            right: 10px;
+            width: 20px;
+            height: 30px;
+            &:hover{
+                cursor: pointer;
+                color: rgb(179, 9, 9);
+                transition: 1s;
+            }
+            svg{
+                width: 100%;
+                height: 100%;
+            }
             
         }
     }
-    .followed_container{
-        width: 100%;
-        height: 83%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        //align-items: center;
-        .chart{
-            height: 70%;
-            width: 90%;   
-            margin: auto; 
-            canvas{
-                height: 80%!important;
-                width: 75%!important;
-                margin: auto;
-            }
-        }
-        p{
-            margin: 5px 0 0 20px;
-            height: 15%;
-            font-size: 18px;
-            //font-weight: 600;
-            //color: darkgray;
-        }
+}
 
+@media screen and (max-width:1400px){
+    .card_container{
+        width: 90%!important;
+        margin: auto!important;
+        margin-top: 75px!important;
     }
-    .delete_btn{
-        position: absolute;
-        bottom: 4px;
-        right: 10px;
-        width: 20px;
-        height: 30px;
-        &:hover{
-            cursor: pointer;
-            color: rgb(179, 9, 9);
-            transition: 1s;
-        }
-        svg{
-            width: 100%;
-            height: 100%;
-        }
-        
+}
+
+@media screen and (max-width:969px){
+    .follow_card{
+        width: 49.80%!important;
+    }
+}
+
+
+@media screen and (max-width:600px){
+    .card_container{
+        margin-top: 111px!important;
+        height: 35%;
+        .container{
+            height: 87%!important;
+            .follow_card{
+                width: 99.8%!important;
+            }
+        };
     }
 }
 

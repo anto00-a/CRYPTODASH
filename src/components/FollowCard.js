@@ -7,7 +7,7 @@ import {Line} from 'react-chartjs-2';
 import DeleteIcon from '@material-ui/icons/Delete';
 import { useDispatch } from 'react-redux';
 import { unFollow,noUpdate, setData} from '../actions';
-
+import { CircleLoading } from 'react-loadingg';
 
 
 function FollowCard(props){
@@ -15,7 +15,10 @@ function FollowCard(props){
     const [date,setDate] = useState([]);
     const [value,setValue] = useState('');
     const [percentage,setPercentage] = useState('');
-    
+    const [status,setStatus] = useState(false)
+
+
+
     const dispatch = useDispatch();
     function timeConverter(UNIX_timestamp){
         var a = new Date(UNIX_timestamp);
@@ -31,7 +34,8 @@ function FollowCard(props){
         axios.get(URL)
         .then(res=>{  
             setPrice(res.data.prices.map((price)=> {return price[1]}))
-            setDate(res.data.prices.map((date)=> {return timeConverter(date[0])}))    
+            setDate(res.data.prices.map((date)=> {return timeConverter(date[0])}))
+            setStatus(true)    
         })
         .catch(err=>console.log(err))
     }
@@ -61,13 +65,12 @@ function FollowCard(props){
             setInterval(()=>{
                 getCoins();
                 getData();
-            },60000)
-        
+            },120000)
+            
         getCoins();
         getData();
         return ()=>clearInterval(interval)
-        //setInterval(getCoins,60000)
-        //setInterval(getData,60000);
+        
     },[value])
 
     
@@ -85,7 +88,7 @@ function FollowCard(props){
             <div className='followed_container'>
                 <p>{numberWithCommas(value)}$</p>
                 <div className='chart'>
-                    <Line
+                {!status ? <CircleLoading/> :<Line
                         data={{
                             labels: date,
                             datasets:[
@@ -141,7 +144,7 @@ function FollowCard(props){
                                 
                             }
                         }}
-                    />
+                    />}
                 </div>
             </div>
             <div className='delete_btn' onClick={removeHandler}><DeleteIcon/></div>

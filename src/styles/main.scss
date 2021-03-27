@@ -9,7 +9,7 @@
 
 body{
     .red{color: red;}
-    .green{color: green;}
+    .green{color: limegreen;}
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     height: 100vh;
     padding: 0;
@@ -25,4 +25,41 @@ body{
         height: 100vh;
         color: lightgrey//rgb(62, 52, 73);
     }
+    .loader {
+        border: 16px solid #f3f3f3; /* Light grey */
+        border-top: 16px solid #3498db; /* Blue */
+        border-radius: 50%;
+        width: 120px;
+        height: 120px;
+        animation: spin 2s linear infinite;
+    }
+    .error{
+        width: 100%;
+        height: 99.5%;
+        border-right: 1px solid black;
+        //border-bottom: 1px solid black;
+        .error_img{
+            background-position: center;
+            background-image: url('../assets/coins.svg');
+            height: 40%;
+            background-repeat: no-repeat;
+            margin: auto;
+            margin-top: 42px;
+        }
+        p{
+            color: gray;
+            width: 100%;
+            text-align: center;
+        }
+    }
+    .display{
+        display: none!important;
+    }
+    
+      
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg);}
+    }
 }
+

@@ -3,7 +3,7 @@
     height: 90%;
     position: absolute;
     left: 17%;
-    top: 10%;
+    top: 7%;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -19,8 +19,8 @@
         text-align: center;
         overflow: hidden;
         position: relative;
-        margin-top: 60px;
-        margin-left: 20px;
+        margin-top: 20px;
+        margin-left: 0px;
         animation: start 1.5s;
         a{
             color: inherit;
@@ -113,6 +113,29 @@
     }
 }
 
+@media screen and (max-width:1400px){
+    .news{
+        width: 84%;
+        left: 11%;
+        .card_title{
+            h3{font-size: 17px!important;}
+        }
+    }
+}
+@media screen and (max-width:969px){
+    .card{
+        width:48%!important;
+    }
+}
+@media screen and (max-width:600px){
+    .news{
+        width: 90%!important;
+        left: 5%!important;
+        .card{
+            width: 100%!important;
+        }
+    }
+}
 
 @keyframes start {
     from{opacity:0}

@@ -12,7 +12,7 @@ const NewsCard = (props) => {
                     <h3>{props.title}</h3>
                     <hr></hr>
                     <div className='intro'>
-                        {props.author}
+                        <p>{props.author}</p>
                     </div>
                 </div>
                 <div className='card_info'>

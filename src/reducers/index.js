@@ -3,13 +3,14 @@ import setData from './gettingData';
 import {combineReducers} from 'redux';
 import followCrypto from './followCard';
 import isLogged from './isLogged';
-
+import titleHandler from './getTitle'
 
 const allReducers = combineReducers({
     setId,
     setData,
     followCrypto,
-    isLogged
+    isLogged,
+    titleHandler
 })
 
 
