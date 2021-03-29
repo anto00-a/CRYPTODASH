@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/CRYPTODASH/static/css/main.1e9c799e.chunk.css",
+    "main.js": "/CRYPTODASH/static/js/main.e2fb5298.chunk.js",
+    "main.js.map": "/CRYPTODASH/static/js/main.e2fb5298.chunk.js.map",
+    "runtime-main.js": "/CRYPTODASH/static/js/runtime-main.b80ee5dc.js",
+    "runtime-main.js.map": "/CRYPTODASH/static/js/runtime-main.b80ee5dc.js.map",
+    "static/js/2.396ff6f8.chunk.js": "/CRYPTODASH/static/js/2.396ff6f8.chunk.js",
+    "static/js/2.396ff6f8.chunk.js.map": "/CRYPTODASH/static/js/2.396ff6f8.chunk.js.map",
+    "static/js/3.8ef5cf26.chunk.js": "/CRYPTODASH/static/js/3.8ef5cf26.chunk.js",
+    "static/js/3.8ef5cf26.chunk.js.map": "/CRYPTODASH/static/js/3.8ef5cf26.chunk.js.map",
+    "index.html": "/CRYPTODASH/index.html",
+    "static/css/main.1e9c799e.chunk.css.map": "/CRYPTODASH/static/css/main.1e9c799e.chunk.css.map",
+    "static/js/2.396ff6f8.chunk.js.LICENSE.txt": "/CRYPTODASH/static/js/2.396ff6f8.chunk.js.LICENSE.txt",
+    "static/media/main.scss": "/CRYPTODASH/static/media/logo.69edd247.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.b80ee5dc.js",
+    "static/js/2.396ff6f8.chunk.js",
+    "static/css/main.1e9c799e.chunk.css",
+    "static/js/main.e2fb5298.chunk.js"
+  ]
+}
