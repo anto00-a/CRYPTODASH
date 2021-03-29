@@ -1,14 +1,11 @@
 .chart_container{
     width: 65%;
     height: 50%;
-    //border: 1px solid green;
     margin: 20px;
     background-color: #262626;
-    //border-radius: 15px;
     font-weight: 600;
     .header{
         height: 13%;
-        //color: rgb(118, 110, 128);
         display: flex;
         justify-content: flex-start;
         position: relative;
@@ -51,7 +48,6 @@
             .icon{
                 width: 26px;
                 height: 23px;
-                //border: 1px solid red;
                 margin-right: 10px;
                 img{width: 100%;height: 100%; }
             }
@@ -85,7 +81,6 @@
             p{
                 &:hover{
                     cursor: pointer;
-                    font-size: 13px;
                     transition: 0.3s;
                     color: goldenrod;
                 }
@@ -102,7 +97,6 @@
     .chart_container{
         width: 90%!important;
         margin: auto!important;
-        //margin-top: 75px!important;
     }
     
 }

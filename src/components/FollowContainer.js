@@ -6,10 +6,7 @@ import Error from './Error'
 
 const FollowContainer = () => {
     const favoriteList = useSelector(state => state.followCrypto);
-    /*const storage = localStorage.getItem('favoriteList');
-    console.log(storage)*/
-    
-    
+
     return (
         <div className='card_container'>
             <div className='header_c'>

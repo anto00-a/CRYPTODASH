@@ -31,7 +31,7 @@
     }
     .follow_card{
         width: 33.33%;
-        height: 165px;
+        height: 50%;
         background-color: #262626;
         box-shadow: 0px 0px 4px 0px #000000;
         font-weight: 600;
@@ -78,7 +78,6 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
-            //align-items: center;
             .chart{
                 height: 70%;
                 width: 90%;   
@@ -94,8 +93,6 @@
                 height: 20%;
                 font-size: 20px;
                 color: white;
-                //font-weight: 600;
-                //color: darkgray;
             }
 
         }
@@ -129,7 +126,7 @@
 
 @media screen and (max-width:969px){
     .follow_card{
-        width: 49.80%!important;
+        width: 50%!important;
     }
 }
 
@@ -137,11 +134,13 @@
 @media screen and (max-width:600px){
     .card_container{
         margin-top: 111px!important;
-        height: 35%;
+        height: 35%!important;
+        width: 100%!important;
         .container{
             height: 87%!important;
             .follow_card{
-                width: 99.8%!important;
+                width: 100%!important;
+                height: auto;
             }
         };
     }

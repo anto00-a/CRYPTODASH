@@ -1,18 +1,30 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import NewsCard from '../components/NewsCard';
-
+import swal from 'sweetalert';
 
 const News = () => {
+    let API_KEY=process.env.REACT_APP_API_KEY
     const[news, setNews] = useState([])
     const getNews = ()=>{
-        const URL = `https://newsapi.org/v2/everything?q=cryptocurrency&apiKey=de208cb1b761490294d502aaecc7425e`;
+        const URL = `https://newsapi.org/v2/everything?q=cryptocurrency&apiKey=${API_KEY}`;
         axios.get(URL)
         .then(res => {
             setNews(res.data.articles)
             console.log(res.data.articles)
         })
-        .catch(err=>console.log(err));
+        .catch(err=>{
+            console.log(err)
+            swal({
+                title: "Oops!There is a problem",
+                text: "Reload page",
+                icon: "error",  
+            }).then(function(isconfirm){
+                if(isconfirm){
+                    window.location.reload()
+                }
+            });
+        })  
     }
     useEffect(()=>{
         if(window.location.pathname === '/News'){

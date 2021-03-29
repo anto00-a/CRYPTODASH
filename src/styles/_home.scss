@@ -1,5 +1,4 @@
 .home{
-    //border: 1px solid yellow;
     width: 80%;
     height: 90%;
     position: absolute;
@@ -10,10 +9,8 @@
 @media screen and (max-width:1400px){
     .home{
         left: 8%!important;
-        //position: relative!important;
         margin: auto;
         width: 90%!important;
-        //top: 0%!important;
     }
     .overlay{
         filter: blur(4px);

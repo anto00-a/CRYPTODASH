@@ -1,14 +1,4 @@
 .sidebar_r{
-    /*height: 84%;
-    width: 23%;
-    position: absolute;
-    top: 12%;
-    right: 3.3%;
-    background-color: #262626;
-    overflow: scroll;
-    font-weight: 600;
-    border-radius: 15px;*/
-    
     height: 99%;
     width: 30%;
     position: absolute;
@@ -17,7 +7,6 @@
     background-color: #262626;
     overflow: scroll;
     font-weight: 600;
-    //border-radius: 15px;
     &::-webkit-scrollbar{
         display: none;
     }
@@ -27,7 +16,6 @@
         align-items: center;
         justify-content: space-around;
         box-shadow: 0px 0px 4px 0px #000000;
-        //padding-left: 12px;
         p{
             width: 33.33%;
             text-align: center;
@@ -41,7 +29,6 @@
             align-items: center;
             animation: start 1s ;
             &:hover{
-                //background-color: #17173B;
                 background-color: #161616;
                 cursor: pointer;
                 transition: 0.5s;
@@ -57,7 +44,6 @@
                 font-size:inherit;
                 margin-left: 10px;
                 text-align: left;
-                //color: white;
                 width: 25%;
                 font-size: 14px;
             }
@@ -65,14 +51,12 @@
                 width: 33.33%; 
                 text-align: center;
                 font-size: 14px;
-                //color: gray;
             }
             .value{
                 color: white;
                 font-size: 17px;
             }
             .percentage{
-                //color: green;
                 font-weight: 600;
                 display: flex;
                 justify-content: center;
@@ -84,10 +68,7 @@
     }
 }
 
-/*@keyframes update{
-    from{color: white;}
-    to{color: inherit;}
-}*/
+
 @keyframes start{
     from{opacity: 0;}
     to{opacity: 1;}
@@ -119,6 +100,9 @@
     }
     .field{
         width: 85%!important;
+        &:hover{
+            background-color: #262626!important;
+        }
     }
     .legend{
         width: 85%!important;

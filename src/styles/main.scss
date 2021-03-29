@@ -15,19 +15,14 @@ body{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    //background-color: #17173B;
     background-color: #161616;
-    //background-color: #05F2F2;
-    //background-color: #05DBF2;
-    //background-color: #262559;
-    //background-color: #352C73;
     .App{
         height: 100vh;
-        color: lightgrey//rgb(62, 52, 73);
+        color: lightgrey
     }
     .loader {
-        border: 16px solid #f3f3f3; /* Light grey */
-        border-top: 16px solid #3498db; /* Blue */
+        border: 16px solid #f3f3f3;
+        border-top: 16px solid #3498db; 
         border-radius: 50%;
         width: 120px;
         height: 120px;
@@ -36,8 +31,7 @@ body{
     .error{
         width: 100%;
         height: 99.5%;
-        border-right: 1px solid black;
-        //border-bottom: 1px solid black;
+        
         .error_img{
             background-position: center;
             background-image: url('../assets/coins.svg');

@@ -7,7 +7,7 @@ import News from './pages/News';
 import Login from './pages/Login';
 import PrivateRoute from './components/PrivateRoute';
 import {useSelector} from 'react-redux';
-//import RightSidebar from './components/RightSidebar';
+
 
 
 function App() {
@@ -20,7 +20,7 @@ function App() {
       <Switch>
         <Route exact path='/Login' component={Login}/>
         <PrivateRoute path='/Home' component={Home} isAuth={status.isLog}/>
-        <Route exact path='/News' component={News}/>
+        <PrivateRoute path='/News' component={News} isAuth={status.isLog}/>
         <Route exact path='/'>
           <Redirect to='/Login'></Redirect>
         </Route>

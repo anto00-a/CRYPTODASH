@@ -16,8 +16,6 @@ function CurrencyField(props) {
                     return dispatch(setData(props))
                 case !'bitcoin':
                     return
-                    //return dispatch(setData(props))
-                    //dispatch(setData(props))
                 default: 
                     return
             }

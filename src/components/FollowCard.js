@@ -8,6 +8,7 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import { useDispatch } from 'react-redux';
 import { unFollow,noUpdate, setData} from '../actions';
 import { CircleLoading } from 'react-loadingg';
+import swal from 'sweetalert';
 
 
 function FollowCard(props){
@@ -37,25 +38,43 @@ function FollowCard(props){
             setDate(res.data.prices.map((date)=> {return timeConverter(date[0])}))
             setStatus(true)    
         })
-        .catch(err=>console.log(err))
+        .catch(err=>{
+            console.log(err)
+            swal({
+                title: "Oops!There is a problem",
+                text: "Reload page",
+                icon: "error",  
+            }).then(function(isconfirm){
+                if(isconfirm){
+                    window.location.reload()
+                }
+            });
+        })  
     }
     const getCoins = ()=>{
         axios.get(`https://api.coingecko.com/api/v3/coins/${props.id}?tickers=false&market_data=true&community_data=false&developer_data=false&sparkline=false`)
         .then(res => {
             setPercentage(res.data.market_data.price_change_percentage_24h);
             setValue(res.data.market_data.current_price.usd)
-            
-
         })
         .catch(err=>{
             console.log(err)
+            swal({
+                title: "Oops!There is a problem",
+                text: "Reload page",
+                icon: "error",  
+            }).then(function(isconfirm){
+                if(isconfirm){
+                    window.location.reload()
+                }
+            });
         })   
     }
 
     const removeHandler = ()=>{
-        dispatch(unFollow(props.id))
-        
+        dispatch(unFollow(props.id))    
     }
+
     function numberWithCommas(x) {
         return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     }

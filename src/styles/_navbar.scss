@@ -36,26 +36,18 @@
         display: none;
         .line1, .line2, .line3{
             background-color: white;
-            /*height: 3px;
-            width: 35px;
-            //margin: 6px 0;
-            transition: 1s;*/
             height: 3px;
             width: 35px;
             margin: 6px 8px;
             transition: 0.7s;
         }
         .change1  {
-            //-webkit-transform: rotate(-40deg) translate(-3px, 4px);
-            //transform: rotate(-40deg) translate(-3px, 4px);
             transform: rotate(-40deg) translate(-9px, 10px);
         }
           
         .change2  {opacity: 0; margin-top: 13px;}
           
         .change3  {
-            //-webkit-transform: rotate(40deg) translate(-8px, -8px);
-            //transform: rotate(40deg) translate(-7px, -10px);
             transform: rotate(40deg) translate(-7px, -8px);
         }
     }
@@ -83,9 +75,7 @@
         top: 20px!important;
     }
     .hamburger_open{
-        //display: block !important;
         height: 43px !important;
-        //position: absolute !important;
         right: 28% !important;
         top: 30px !important;
         z-index: 10;
@@ -136,6 +126,7 @@
     }
     .hamburger{
         right: 10px!important;
+        top: 10px!important;
         .line1,.line2,.line3{
             width: 27px!important;
         }

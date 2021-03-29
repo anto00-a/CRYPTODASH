@@ -8,18 +8,6 @@
     display: flex;
     align-items: center;
     justify-content: space-around;
-    /*.img{
-        background-image: url('../assets/grafico.jpg');
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        position: absolute;
-        top: 0;
-        width: 100%;
-        height: 100vh;
-        z-index: 10;
-        filter: blur(4px);
-    }*/
     .description{
         width: 40%;
         height: 460px;
@@ -112,7 +100,7 @@
         display: block;
         .login_container{
             width: 86%;
-            height: 54%;
+            height: 400px;
             .logo{
                 height:125px ;
             }

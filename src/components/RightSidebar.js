@@ -2,7 +2,7 @@ import React, {useEffect,useState} from 'react';
 import CurrencyField from './CurrencyField';
 import axios from 'axios';
 import { SemipolarLoading } from 'react-loadingg';
-
+import swal from 'sweetalert';
 
 
 
@@ -21,7 +21,16 @@ function RightSidebar(){
         })
         .catch(err=>{
             console.log(err)
-        })   
+            swal({
+                title: "Oops!There is a problem",
+                text: "Reload page",
+                icon: "error",  
+            }).then(function(isconfirm){
+                if(isconfirm){
+                    window.location.reload()
+                }
+            });
+        })  
     }
     useEffect(()=>{
         const interval = 
@@ -30,10 +39,7 @@ function RightSidebar(){
             },120000)
         
         getCoins();
-        return ()=>clearInterval(interval)
-        /*getCoins()
-        setInterval(getCoins,60000);*/
-        
+        return ()=>clearInterval(interval)   
     },[coins.current_price])
     
     function numberWithCommas(x) {

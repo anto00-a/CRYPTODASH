@@ -41,19 +41,14 @@ function LeftSidebar(){
                 </ul>
             </div>
             <div className='nav_b'>
-                <Link to='/Login' onClick={exitHandler}>
+                <Link to='/Login' onClick={()=>{exitHandler();removeDrop()}}>
                     <div className='exit'>
                         <ExitToAppIcon/>
                         <p>Exit</p>
                     </div>
                 </Link>
                 
-                <div className='darkmode'>
-                    <div className='switch'>
-                        <div></div>
-                    </div>
-                    <p>Dark</p>
-                </div>
+               
             </div>
         </div>
     )
