@@ -1,4 +1,10 @@
-const setId = (state = 'bitcoin', action) =>{
+
+const initialState = () => {
+    const coin = 'bitcoin';
+    return coin
+}
+
+const setId = (state = initialState(), action) =>{
     switch(action.type) {
         case 'FIRST' :
             return state

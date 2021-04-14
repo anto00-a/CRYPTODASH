@@ -5,6 +5,7 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { dropdown } from '../utils/dropdown';
 import {hamburger} from '../utils/hamburger'
 
+
 function Navbar(){
     
     const title = useSelector(state=>state.titleHandler)
@@ -16,6 +17,7 @@ function Navbar(){
                 <Avatar alt='Avatar' src='https://avatars.githubusercontent.com/u/59619056?s=60&v=4'/></div>
             </div>
             <h1 className='nav_title'>{title}</h1>
+            
             <div className="hamburger" onClick={hamburger}>
                 <div className="line1"></div>
                 <div className="line2"></div>

@@ -5,11 +5,7 @@
     top: 20px;
     right: 0;
     background-color: #262626;
-    overflow: scroll;
     font-weight: 600;
-    &::-webkit-scrollbar{
-        display: none;
-    }
     .legend{
         height: 7%;
         display: flex;
@@ -22,7 +18,11 @@
         }
     }
     .currency_list{
-        
+        overflow: scroll;
+        height: 93%;
+        &::-webkit-scrollbar{
+            display: none;
+        }
         .field{
             display: flex;
             justify-content: space-around;
@@ -88,9 +88,25 @@
         border-radius: 0px; 
         animation: slide-in-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
         .legend{
-            margin-top: 20px;
+            margin-top: 10px;
             box-shadow: none!important;
-        } 
+        }
+        .form{
+            position: relative;
+            top: 10px;
+            //background-color: #161616;
+            height: 5%;
+            margin-left: 25px;
+            form{
+                width: 85%;
+                input[type='text']{
+                    background-color: #161616;
+                }
+            }
+        }
+        .currency_list{
+            height: 87.5%!important;
+        }
     } 
 }
 @media screen and (max-width:600px){
@@ -106,6 +122,13 @@
     }
     .legend{
         width: 85%!important;
+        
+    }
+    .form{
+        margin-left: 0!important;
+        svg{
+            display: none;
+        }
         
     }
 }

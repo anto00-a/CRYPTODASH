@@ -5,7 +5,6 @@ import RightSidebar from '../components/RightSidebar';
 
 
 function Home(){
-    
     return(
         <div className='home'>
             <CryptoChart/>

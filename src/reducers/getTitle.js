@@ -1,10 +1,18 @@
+const initialState = () => {
+    const title = 'Dashboard';
+    return title
+}
 
 
-
-const titleHandler= (state='Dashboard',action) =>{
+const titleHandler= (state=initialState(),action) =>{
     switch (action.type){
         case 'News':
-            console.log(action.payload)
+            document.getElementById('news').style='color:#14B6E4; transition:0.5s';
+            document.getElementById('dash').style='color:#d3d3d3; transition:0.5s';
+            return action.payload
+        case 'Dashboard':
+            document.getElementById('dash').style='color:#14B6E4; transition:0.5s';
+            document.getElementById('news').style='color:#d3d3d3; transition:0.5s';
             return action.payload
         default:
             return state

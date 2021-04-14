@@ -1,0 +1,25 @@
+.form{
+    position: absolute;
+    top: -60px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    background: #262626;
+    justify-content: space-around;
+    form{
+        display: flex;
+        align-items: center;
+        width: 80%;
+        input[type='text']{
+            width: 93%;
+            outline: none;
+            border: none;
+            padding: 6px;
+            background: #262626;
+            color: #fff;
+        }
+    }
+    svg{
+        width: 7%;
+    }
+}

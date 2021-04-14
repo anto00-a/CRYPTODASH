@@ -1,9 +1,11 @@
+const initialState = () => {
+    const log = {name:'',isLog:false};
+    return log
+}
 
-
-const isLogged = (state={name:'', isLog:false},action) => {
+const isLogged = (state=initialState(),action) => {
     switch (action.type){
         case 'ISLOGGED': 
-            console.log(state)
             return state = action.payload
         case 'NOTLOGGED':
             return state = action.payload

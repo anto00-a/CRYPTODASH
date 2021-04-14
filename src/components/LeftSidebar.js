@@ -20,7 +20,7 @@ function LeftSidebar(){
     return(
         <div className='sidebar_l'>
             <div className='logo_n'>
-                <h1>CRYPTOTAB</h1>
+                <h1>CRYPTODASH</h1>
             </div>
             <div className='logo'></div>
             <div className='profile'>
@@ -33,10 +33,10 @@ function LeftSidebar(){
             <div className='nav'>
                 <ul>
                     <Link to='/Home' onClick={()=>{dispatch(title('Dashboard')); hamburger.classList.remove('display');removeDrop() }}>
-                        <li><DashboardIcon/><p>Dashboard</p></li>
+                        <li id='dash'><DashboardIcon/><p>Dashboard</p></li>
                     </Link>
                     <Link to='/News' onClick={()=>{dispatch(title('News')); removeDrop()}}>
-                        <li><ChromeReaderModeIcon/><p>News</p></li>   
+                        <li id='news'><ChromeReaderModeIcon/><p>News</p></li>   
                     </Link>
                 </ul>
             </div>

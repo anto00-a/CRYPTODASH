@@ -8,7 +8,7 @@ import {useSelector,useDispatch} from 'react-redux';
 import axios from 'axios';
 import { SemipolarLoading } from 'react-loadingg';
 import swal from 'sweetalert';
-
+import {getFilter} from '../actions';
 
 function CryptoChart(){
     const [price,setPrice] = useState([]);
@@ -17,7 +17,7 @@ function CryptoChart(){
     const [volume,setVolume] = useState([])
     const [status,setStatus] = useState(false)
     const [filter,setFilter] = useState('30');
-    const [interval, setInterval] = useState('daily');
+    const [interval, setTimeInterval] = useState('daily');
     const dispatch = useDispatch();
     const info = useSelector (state => state.setData);
     const idCoin = useSelector(state => state.setId);
@@ -66,7 +66,7 @@ function CryptoChart(){
         }
         setStatus(false)
         getData()
-        
+        dispatch(getFilter(filter))
            
     },[idCoin,filter])
     
@@ -150,10 +150,10 @@ function CryptoChart(){
             </div>
             <div className='filter_container'>
                 <div className='filter'>
-                    <p onClick={()=>{setInterval('hourly'); setFilter('1')}}>24h</p>
-                    <p onClick={()=>{setInterval('daily'); setFilter('7')}}>1 week</p>
-                    <p onClick={()=>{setInterval('daily'); setFilter('15')}}>2 weeks</p>
-                    <p onClick={()=>{setInterval('daily'); setFilter('30')}}>1 month</p>
+                    <p id='hour' onClick={()=>{setTimeInterval('hourly'); setFilter('1')}}>24h</p>
+                    <p id='week' onClick={()=>{setTimeInterval('daily'); setFilter('7')}}>1 week</p>
+                    <p id='weeks' onClick={()=>{setTimeInterval('daily'); setFilter('15')}}>2 weeks</p>
+                    <p id='month' onClick={()=>{setTimeInterval('daily'); setFilter('30')}}>1 month</p>
                 </div>
             </div>
         </div>

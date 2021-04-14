@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { isLogged } from '../actions';
 import swal from 'sweetalert';
+import Signup from '../components/Signup';
+import { signupHandler } from '../utils/signup';
 
 
 
@@ -12,29 +14,23 @@ const Login = () => {
     const [password, setPassword] = useState(null);
     const dispatch = useDispatch();
     const status =  useSelector(state=>state.isLogged)
+    const users = JSON.parse(localStorage.getItem('users'));
     
-    const submitHandler = () => {
-        if((username==='' || username === null) && !status.isLog){
-            swal({
-                title: "ERROR!",
-                text: "Invalid Username!",
-                icon: "error",
-              });
-        }else if((password==='' || password===null) && !status.isLog){
-            swal({
-                title: "ERROR!",
-                text: "Invalid Password!",
-                icon: "error",
-              });
-        }else{
-            
-            dispatch(isLogged(
-                username,
-                true 
-            ))
-        }
-    }
 
+
+    
+    const doesUserExist = (users, user) => 
+        users.some(e => (e.username === user.username && e.password === user.password) && !status.isLog) ? dispatch(isLogged(username,true)) : swal({title:"INVALID CREDENTIAL!",text:'',icon:'error'})
+    const submitHandler = () => {
+        if(!users){
+            return swal({
+                title: 'USER NOT FOUND!',
+                text: 'Sign up before to login',
+                icon: "warning"
+            })
+        };
+        doesUserExist(users,{username:username,password:password})
+    }
     return (
         <div className='login'>
             <div className='description'>
@@ -53,8 +49,12 @@ const Login = () => {
                         <button className='login_btn'  onClick={submitHandler}>LOGIN</button>
                     </Link>
                 </form>
+                <hr></hr>
+                <div className='register_c'>
+                    <button onClick={signupHandler}>CREATE ACCOUNT</button>
+                </div>
             </div>
-            
+            <Signup/>    
         </div>
     )
 }

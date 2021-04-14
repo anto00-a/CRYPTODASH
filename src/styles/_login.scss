@@ -27,9 +27,9 @@
         }
     }
     
-    .login_container{
+    .login_container,.signup{
         width: 450px;
-        height: 475px;
+        height: auto;
         margin-right: 50px;
         background: #212121;
         position: relative;
@@ -59,7 +59,7 @@
                 margin-bottom: 20px;
             }
             .login_btn{
-                margin: 50px auto;
+                margin: 20px auto 7px auto;
                 width: 100%;
                 height: 50px;
                 background-color: #14B6E4;
@@ -75,15 +75,70 @@
                 cursor:inherit
             }
         }
+        hr{
+            width: 41%;
+            border: 1px solid gray;
+        }
+        .register_c{
+            margin: auto;
+            width: 70%;
+            display: flex;
+            justify-content: center;
+            margin-top: 12px;
+            margin-bottom: 45px;
+            button{
+                width: 80%;
+                height: 40px;
+                border: none;
+                outline: none;
+                background: goldenrod;
+                color: white;
+                border-radius: 10px;
+                &:hover{
+                    cursor: pointer;
+                }
+            }
+        }
     }
+    .signup{
+        height:auto;
+        display: none;
+        .signup_container{
+            position: relative;
+            .login_btn{
+                margin-top: 25px!important;
+                margin-bottom: 25px!important;
+                &:hover{
+                    cursor: pointer;
+                }
+            }
+            .close{
+                position: absolute;
+                right: 20px;
+                top: 15px;
+                &:hover{
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+    .display{
+        display: block!important;
+        position: absolute;
+        animation: slide-in-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    };
+    .overlay{
+        filter: blur(10px);
+    }
+    
 }
 @media screen and (max-width:969px){
     .login{
         display: block;
-        .login_container{
+        .login_container,.signup_container{
             width: 50%;
-            height: 50%;
             margin: auto;
+            height: 500px;
         }
         .description{
             width: 50%;
@@ -92,15 +147,23 @@
             p{font-size: 18px;}
             h4{margin-top: -20px;}
         }
+        .signup{
+            width: 100vw;
+            top: 22%;
+            background-color: rgba(231,213,255,0);
+            .signup_container{
+                background-color: #212121;    
+            }
+        }
     }
 }
 
 @media screen and (max-width:600px){
-    .login{
+    .login,.signup{
         display: block;
-        .login_container{
+        .login_container,.signup_container{
             width: 86%;
-            height: 400px;
+            height: 470px;
             .logo{
                 height:125px ;
             }
@@ -113,5 +176,9 @@
             h4{font-size: 15px;}
             h2{font-size: 26px;}
         }
+
     }
+    
 }
+
+
