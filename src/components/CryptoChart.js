@@ -18,11 +18,18 @@ function CryptoChart(){
     const [status,setStatus] = useState(false)
     const [filter,setFilter] = useState('30');
     const [interval, setTimeInterval] = useState('daily');
+    const [firstid,setFirstId] = useState(true)
     const dispatch = useDispatch();
     const info = useSelector (state => state.setData);
     const idCoin = useSelector(state => state.setId);
     
-
+    const idHandler = () =>{
+        if(firstid){
+            return 'bitcoin' 
+        }else{
+            return idCoin
+        }
+    }
 
     function timeConverter(UNIX_timestamp){
         var a = new Date(UNIX_timestamp);
@@ -42,7 +49,7 @@ function CryptoChart(){
     
     useEffect(() => {
         const getData = () => {
-            const URL = `https://api.coingecko.com/api/v3/coins/${idCoin}/market_chart?vs_currency=usd&days=${filter}&interval=${interval}`
+            const URL = `https://api.coingecko.com/api/v3/coins/${idHandler()}/market_chart?vs_currency=usd&days=${filter}&interval=${interval}`
             axios.get(URL)
             .then(res=>{ 
                 setPrice(res.data.prices.map((price)=> {return price[1]}))
@@ -50,6 +57,7 @@ function CryptoChart(){
                 setCap(res.data.market_caps.pop());
                 setVolume(res.data.total_volumes.pop());
                 setStatus(true)
+                setFirstId(false)
             })
             .catch(err=>{
                 console.log(err)

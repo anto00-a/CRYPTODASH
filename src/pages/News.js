@@ -11,7 +11,6 @@ const News = () => {
         axios.get(URL)
         .then(res => {
             setNews(res.data.articles)
-            console.log(res.data.articles)
         })
         .catch(err=>{
             console.log(err)

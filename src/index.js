@@ -4,11 +4,11 @@ import App from './App';
 import testStyle from './styles/main.scss';
 import {BrowserRouter as Router} from 'react-router-dom';
 import reportWebVitals from './reportWebVitals';
-import {createStore} from 'redux';
 import {Provider} from 'react-redux';
-import allReducers from './reducers'
+import {store} from './config/store'
 
-const store = createStore(allReducers)
+
+
 
 
 ReactDOM.render(

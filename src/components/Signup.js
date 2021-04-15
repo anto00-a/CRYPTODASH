@@ -16,22 +16,25 @@ const [address,setAddress] = useState('');
 const dispatch = useDispatch();
 
 const registerHandler = () =>{
-    if(!username || !password || !address){
+    let dot = address.includes('.');
+    let add = address.includes('@')
+    if((!username || !password || !address || dot===false|| add===false)){
         swal({
             title: "ERROR!",
             text: "Invalid data!",
             icon: "error",
-        });
+        });   
     }else{
         dispatch(signed({address:address,username:username,password:password}));
         signupHandler()
         swal({
             title:'USER REGISTERED',
-            text:'Now you cad do login',
+            text:'SUCCESSFUL SIGN UP',
             icon:'success'
         })
         
     }
+    
 }
 
 
@@ -49,7 +52,7 @@ const registerHandler = () =>{
                     <label>Password:</label>
                     <input type='password'  onChange={(e)=>{setPassword(e.target.value)}} ></input>
                     <Link to = '/Home'>
-                        <button className='login_btn'  onClick={registerHandler}>SIGNUP</button>
+                        <button className='login_btn'  onClick={registerHandler}>SIGN UP</button>
                     </Link>
                 </form>
             </div>

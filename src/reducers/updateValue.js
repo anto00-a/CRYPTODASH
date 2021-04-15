@@ -2,6 +2,7 @@
 const initialState = () => {
     const coin = 'bitcoin';
     return coin
+    
 }
 
 const setId = (state = initialState(), action) =>{

@@ -14,7 +14,7 @@ const Login = () => {
     const [password, setPassword] = useState(null);
     const dispatch = useDispatch();
     const status =  useSelector(state=>state.isLogged)
-    const users = JSON.parse(localStorage.getItem('users'));
+    const users = JSON.parse(localStorage.getItem('state'));
     
 
 
@@ -22,14 +22,14 @@ const Login = () => {
     const doesUserExist = (users, user) => 
         users.some(e => (e.username === user.username && e.password === user.password) && !status.isLog) ? dispatch(isLogged(username,true)) : swal({title:"INVALID CREDENTIAL!",text:'',icon:'error'})
     const submitHandler = () => {
-        if(!users){
+        if(users===null){
             return swal({
                 title: 'USER NOT FOUND!',
                 text: 'Sign up before to login',
                 icon: "warning"
             })
         };
-        doesUserExist(users,{username:username,password:password})
+        doesUserExist(users.signUp,{username:username,password:password})
     }
     return (
         <div className='login'>

@@ -47,7 +47,6 @@ export const title = (title) => {
 
 
 export const signed = (user)=>{
-    localStorage.setItem('users', JSON.stringify(user))
     return{
         type:'SIGNED',
         payload: user,
