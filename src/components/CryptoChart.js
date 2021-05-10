@@ -3,12 +3,14 @@ import {Line} from 'react-chartjs-2';
 import BookmarkIcon from '@material-ui/icons/Bookmark';
 import TrendingUpIcon from '@material-ui/icons/TrendingUp';
 import TrendingDownIcon from '@material-ui/icons/TrendingDown';
-import {follow} from '../actions';
 import {useSelector,useDispatch} from 'react-redux';
 import axios from 'axios';
 import { SemipolarLoading } from 'react-loadingg';
 import swal from 'sweetalert';
 import {getFilter} from '../actions';
+import firebase from '../firebase'
+
+
 
 function CryptoChart(){
     const [price,setPrice] = useState([]);
@@ -18,11 +20,17 @@ function CryptoChart(){
     const [status,setStatus] = useState(false)
     const [filter,setFilter] = useState('30');
     const [interval, setTimeInterval] = useState('daily');
-    const [firstid,setFirstId] = useState(true)
+    const [firstid,setFirstId] = useState(true);
     const dispatch = useDispatch();
     const info = useSelector (state => state.setData);
     const idCoin = useSelector(state => state.setId);
-    
+    const user = useSelector(state=>state.isLogged)
+    const [favorite,setFavorite] = useState([]);
+
+
+
+    const ref = firebase.database().ref(`users/${user.user.uid}/follow`);
+
     const idHandler = () =>{
         if(firstid){
             return 'bitcoin' 
@@ -30,7 +38,7 @@ function CryptoChart(){
             return idCoin
         }
     }
-
+    
     function timeConverter(UNIX_timestamp){
         var a = new Date(UNIX_timestamp);
         var months = ['01','02','03','04','05','06','07','08','09','10','11','12'];
@@ -43,11 +51,29 @@ function CryptoChart(){
         return filter === '1' ? hourTime : time
     }
     
+    
+    
+    const getDataFromDatabase = () =>{
+        
+        ref.on('value',(snapshot)=>{
+            if(snapshot.exists()){
+                const currencies = [];
+                snapshot.forEach(snap => {
+                    currencies.push({key:snap.key, ... snap.val()})
+                });
+                setFavorite(currencies)
+                console.log(currencies)
+            }
+        })
+    }
     const addToFavorite = () => {
-        dispatch(follow(info));
+        if(!favorite.find(o=>o.id === info.id)){
+            ref.push(info)
+        }
     }
     
     useEffect(() => {
+        getDataFromDatabase()
         const getData = () => {
             const URL = `https://api.coingecko.com/api/v3/coins/${idHandler()}/market_chart?vs_currency=usd&days=${filter}&interval=${interval}`
             axios.get(URL)
@@ -85,7 +111,7 @@ function CryptoChart(){
 
     return(
         <div className='chart_container'>
-            <div className='header'>
+            {<div className='header'>
                 <div className='currency'>
                         <BookmarkIcon id='fav' onClick={addToFavorite}/>
                     <div className='currency_name'>
@@ -114,7 +140,7 @@ function CryptoChart(){
                     
                 </table>
                 
-            </div>
+            </div>}
             <div className='chart'>
             {!status ? <SemipolarLoading/> : <Line
                     data={{

@@ -6,15 +6,26 @@ import DashboardIcon from '@material-ui/icons/Dashboard';
 import ChromeReaderModeIcon from '@material-ui/icons/ChromeReaderMode';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { isLogged, title } from '../actions';
+import { isLogged, title, getName } from '../actions';
 import {dropdown, removeDrop} from '../utils/dropdown';
+import firebase from '../firebase';
+
+
+
 
 function LeftSidebar(){
+
     let hamburger = document.querySelector('.hamburger')
     const dispatch= useDispatch();
-    const name = useSelector(state=>state.isLogged)
+    const name =  useSelector(state=>state.getName)
+    
+    
+    
+    
     const exitHandler= ()=>{
-        dispatch(isLogged(null,false))
+        firebase.auth().signOut();
+        dispatch(isLogged(false,null));
+        dispatch(getName(''));
     }
     
     return(
@@ -27,7 +38,7 @@ function LeftSidebar(){
                 <div className='avatar'>
                     <div className='arrow' onClick={dropdown}><ExpandLessIcon/></div>
                     <Avatar alt='Avatar' src='https://avatars.githubusercontent.com/u/59619056?s=60&v=4'/>
-                    <h3>{name.name} </h3>
+                    <h3>{name} </h3>
                 </div>
             </div>
             <div className='nav'>

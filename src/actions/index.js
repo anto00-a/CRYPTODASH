@@ -12,7 +12,7 @@ export const noUpdate = (id) => {
     }
 }
 
-export const follow = (data) => {
+/*export const follow = (data) => {
     return{
         type: 'FOLLOWED',
         payload:data,
@@ -24,14 +24,15 @@ export const unFollow = (id) => {
         payload: id
     }
 }
+*/
 
-
-export const isLogged = (name,isLog) => {
+export const isLogged = (isLog,user) => {
     return{
         type: 'ISLOGGED',
         payload: {
-            name:name,
-            isLog :isLog
+            isLog,
+            user
+
         }
     }
 }
@@ -46,10 +47,10 @@ export const title = (title) => {
 
 
 
-export const signed = (user)=>{
+export const getName = (name)=>{
     return{
-        type:'SIGNED',
-        payload: user,
+        type:'GETNAME',
+        payload: name,
     }
 }
 

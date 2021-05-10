@@ -3,6 +3,7 @@ import axios from 'axios';
 import NewsCard from '../components/NewsCard';
 import swal from 'sweetalert';
 
+
 const News = () => {
     let API_KEY=process.env.REACT_APP_API_KEY
     const[news, setNews] = useState([])

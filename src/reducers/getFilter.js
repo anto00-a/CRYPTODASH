@@ -1,10 +1,7 @@
-const initialState = () => {
-    const filter = '1';
-    return filter
-}
 
 
-const filterHandler= (state=initialState(),action) =>{
+
+const filterHandler= (state='1',action) =>{
     const hour = document.getElementById('hour');
     const week = document.getElementById('week');
     const weeks = document.getElementById('weeks');

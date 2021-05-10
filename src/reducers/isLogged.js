@@ -1,9 +1,6 @@
-const initialState = () => {
-    const log = {name:'',isLog:false};
-    return log
-}
 
-const isLogged = (state=initialState(),action) => {
+
+const isLogged = (state={isLog:false,user:null},action) => {
     switch (action.type){
         case 'ISLOGGED': 
             return state = action.payload

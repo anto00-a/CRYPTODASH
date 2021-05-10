@@ -5,11 +5,11 @@ import SwapHorizIcon from '@material-ui/icons/SwapHoriz';
 import axios from 'axios';
 import {Line} from 'react-chartjs-2';
 import DeleteIcon from '@material-ui/icons/Delete';
-import { useDispatch } from 'react-redux';
-import { unFollow,noUpdate, setData} from '../actions';
+import { useDispatch, useSelector } from 'react-redux';
+import { noUpdate, setData} from '../actions';
 import { CircleLoading } from 'react-loadingg';
 import swal from 'sweetalert';
-
+import firebase from '../firebase';
 
 function FollowCard(props){
     const [price,setPrice] = useState([]);
@@ -17,10 +17,9 @@ function FollowCard(props){
     const [value,setValue] = useState('');
     const [percentage,setPercentage] = useState('');
     const [status,setStatus] = useState(false)
-
-
-
     const dispatch = useDispatch();
+    const user = useSelector(state=>state.isLogged)
+
     function timeConverter(UNIX_timestamp){
         var a = new Date(UNIX_timestamp);
         var months = ['01','02','03','04','05','06','07','08','09','10','11','12'];
@@ -31,7 +30,7 @@ function FollowCard(props){
         return time;
     }
     const getData = () => {
-        const URL = `https://api.coingecko.com/api/v3/coins/${props.id}/market_chart?vs_currency=usd&days=7&interval=daily`
+        const URL = `https://api.coingecko.com/api/v3/coins/${props.coin}/market_chart?vs_currency=usd&days=7&interval=daily`
         axios.get(URL)
         .then(res=>{  
             setPrice(res.data.prices.map((price)=> {return price[1]}))
@@ -52,7 +51,7 @@ function FollowCard(props){
         })  
     }
     const getCoins = ()=>{
-        axios.get(`https://api.coingecko.com/api/v3/coins/${props.id}?tickers=false&market_data=true&community_data=false&developer_data=false&sparkline=false`)
+        axios.get(`https://api.coingecko.com/api/v3/coins/${props.coin}?tickers=false&market_data=true&community_data=false&developer_data=false&sparkline=false`)
         .then(res => {
             setPercentage(res.data.market_data.price_change_percentage_24h);
             setValue(res.data.market_data.current_price.usd)
@@ -70,9 +69,11 @@ function FollowCard(props){
             });
         })   
     }
-
+    
     const removeHandler = ()=>{
-        dispatch(unFollow(props.id))    
+        console.log(user)
+        const ref = firebase.database().ref(`users/${user.user.uid}/follow`).child(`${props.id}`);
+        ref.remove()
     }
 
     function numberWithCommas(x) {

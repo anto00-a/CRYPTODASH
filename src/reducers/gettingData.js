@@ -1,8 +1,5 @@
-const initialState = () => {
-    const data = [];
-    return data
-}
-const setData = (state = initialState() , action) =>{
+
+const setData = (state = [], action) =>{
     switch(action.type) {
         case 'GET' :
             return action.payload

@@ -12,15 +12,14 @@ import {useSelector} from 'react-redux';
 
 function App() {
   const status = useSelector(state=>state.isLogged)
-  
   return (
     <div className="App">
       <Navbar/>
       <LeftSidebar/>
       <Switch>
         <Route exact path='/Login' component={Login}/>
-        <PrivateRoute path='/Home' component={Home} isAuth={status.isLog}/>
-        <PrivateRoute path='/News' component={News} isAuth={status.isLog}/>
+        <PrivateRoute path='/Home' component={Home} isAuth={status.isLog} />
+        <PrivateRoute path='/News' component={News} isAuth={status.isLog} />
         <Route exact path='/'>
           <Redirect to='/Login'></Redirect>
         </Route>

@@ -1,10 +1,7 @@
-const initialState = () => {
-    const title = 'Dashboard';
-    return title
-}
 
 
-const titleHandler= (state=initialState(),action) =>{
+
+const titleHandler= (state='Dashboard',action) =>{
     switch (action.type){
         case 'News':
             document.getElementById('news').style='color:#14B6E4; transition:0.5s';

@@ -1,11 +1,10 @@
 import React, {useState } from 'react'
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { signed } from '../actions';
 import { signupHandler } from '../utils/signup';
 import CloseIcon from '@material-ui/icons/Close';
 import swal from 'sweetalert';
-
+import firebase from '../firebase'
 
 const Signup = () => {
 const [username,setUsername] = useState('');
@@ -13,27 +12,35 @@ const [password,setPassword] = useState('');
 const [address,setAddress] = useState('');
 
 
-const dispatch = useDispatch();
+
 
 const registerHandler = () =>{
-    let dot = address.includes('.');
-    let add = address.includes('@')
-    if((!username || !password || !address || dot===false|| add===false)){
-        swal({
-            title: "ERROR!",
-            text: "Invalid data!",
-            icon: "error",
-        });   
-    }else{
-        dispatch(signed({address:address,username:username,password:password}));
-        signupHandler()
+    firebase.auth().createUserWithEmailAndPassword(address,password).then((user)=>{
+        
+        console.log(user.user.uid)
+        const userData = {
+            username: username,
+            email: address,
+            password:password
+        }
+        firebase.database().ref(`users/${user.user.uid}`).set(
+           userData
+        );     
         swal({
             title:'USER REGISTERED',
             text:'SUCCESSFUL SIGN UP',
             icon:'success'
         })
-        
-    }
+    }).catch((err)=>{
+        console.log(err)
+        swal({
+            title: "ERROR!",
+            text: "Invalid data!",
+            icon: "error",
+        });   
+    })
+    signupHandler();
+    
     
 }
 
