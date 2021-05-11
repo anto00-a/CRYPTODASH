@@ -93,10 +93,9 @@ function FollowCard(props){
         
     },[value])
 
-    
     return(
         <div className='follow_card' >
-            <div className='header' onClick={()=>{dispatch(noUpdate(props.id)); dispatch(setData(props))}}>
+            <div className='header' onClick={()=>{dispatch(noUpdate(props.coin)); dispatch(setData({id:props.coin,symbol:props.symbol,image:props.image,value:props.value,icon:props.icon,percentage:props.percentage}))}}>
                 <div className='header_l'>
                     <div className='icon'><img src={props.image}></img></div>
                     <p>{props.symbol}<SwapHorizIcon/> USD</p>
