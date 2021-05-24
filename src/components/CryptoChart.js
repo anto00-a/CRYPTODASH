@@ -54,7 +54,7 @@ function CryptoChart(){
     
     
     const getDataFromDatabase = () =>{
-        
+
         ref.on('value',(snapshot)=>{
             if(snapshot.exists()){
                 const currencies = [];
@@ -67,6 +67,7 @@ function CryptoChart(){
         })
     }
     const addToFavorite = () => {
+
         if(!favorite.find(o=>o.id === info.id)){
             ref.push(info)
         }

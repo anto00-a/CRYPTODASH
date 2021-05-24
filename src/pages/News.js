@@ -2,10 +2,13 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import NewsCard from '../components/NewsCard';
 import swal from 'sweetalert';
+import { useDispatch } from 'react-redux';
+import { title } from '../actions';
 
 
 const News = () => {
     let API_KEY=process.env.REACT_APP_API_KEY
+    const dispatch = useDispatch()
     const[news, setNews] = useState([])
     const getNews = ()=>{
         const URL = `https://newsapi.org/v2/everything?q=cryptocurrency&apiKey=${API_KEY}`;
@@ -32,6 +35,7 @@ const News = () => {
             hamburger.classList.add('display')
         }
         getNews();
+        dispatch(title('News'))
     },[])
     return (
         <div className='news'>

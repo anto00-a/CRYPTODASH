@@ -5,6 +5,14 @@ import isLogged from './isLogged';
 import titleHandler from './getTitle';
 import getName from './getName';
 import filterHandler from './getFilter'
+import {persistReducer} from 'redux-persist';
+import storage from 'redux-persist/lib/storage'
+
+const persistConfig = {
+    key:'root',
+    storage,
+    whitelist: ['isLogged','getName']
+}
 const allReducers = combineReducers({
     setId,
     setData,
@@ -17,4 +25,4 @@ const allReducers = combineReducers({
 
 
 
-export default allReducers;
+export default persistReducer(persistConfig,allReducers)

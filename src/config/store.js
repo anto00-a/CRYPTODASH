@@ -1,11 +1,13 @@
 import {createStore} from 'redux';
 import allReducers from '../reducers';
 import {composeWithDevTools} from "redux-devtools-extension"; 
-
-const store = createStore(allReducers, composeWithDevTools()
-
-);
+import {persistStore} from 'redux-persist';
 
 
 
-export {store}
+const store = createStore(allReducers, composeWithDevTools());
+const persistor = persistStore(store);
+
+
+
+export {store,persistor}

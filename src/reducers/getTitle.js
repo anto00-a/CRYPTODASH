@@ -1,7 +1,7 @@
 
 
 
-const titleHandler= (state='Dashboard',action) =>{
+const titleHandler= (state='',action) =>{
     switch (action.type){
         case 'News':
             document.getElementById('news').style='color:#14B6E4; transition:0.5s';

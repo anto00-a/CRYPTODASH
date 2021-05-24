@@ -1,4 +1,4 @@
-import React,{ useState } from 'react';
+import React,{ useState,useEffect } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { useDispatch} from 'react-redux';
 import { isLogged } from '../actions';
@@ -17,10 +17,12 @@ const Login = () => {
     const dispatch = useDispatch();
     let history = useHistory()
     
+    
     const submitHandler = () => {
         
         firebase.auth().signInWithEmailAndPassword(address, password).then((user)=>{
-
+            
+            
             dispatch(isLogged(true,user.user))
             history.push('/Home')
         }).catch((err)=>{
@@ -47,7 +49,7 @@ const Login = () => {
         <div className='login'>
             <div className='description'>
                 <h2>CRYPTODASH</h2>
-                <Typist cursor={{show:false}}><h4>Entra nel mondo delle crypto valute con CryptoDash.</h4><br></br>
+                <Typist cursor={{show:false}  }><h4>Entra nel mondo delle crypto valute con CryptoDash.</h4><br></br>
                 <p>Segui l'andamento delle monete virtuali e scegli dove investire. </p></Typist>
             </div>
             <div className='login_container'>

@@ -14,18 +14,16 @@ import firebase from '../firebase';
 
 
 function LeftSidebar(){
-
-    let hamburger = document.querySelector('.hamburger')
+    
+    
     const dispatch= useDispatch();
     const name =  useSelector(state=>state.getName)
-    
-    
-    
     
     const exitHandler= ()=>{
         firebase.auth().signOut();
         dispatch(isLogged(false,null));
         dispatch(getName(''));
+        
     }
     
     return(
@@ -43,10 +41,10 @@ function LeftSidebar(){
             </div>
             <div className='nav'>
                 <ul>
-                    <Link to='/Home' onClick={()=>{dispatch(title('Dashboard')); hamburger.classList.remove('display');removeDrop() }}>
+                    <Link to='/Home' onClick={()=>{let hamburger = document.querySelector('.hamburger');hamburger.classList.remove('display');removeDrop() }}>
                         <li id='dash'><DashboardIcon/><p>Dashboard</p></li>
                     </Link>
-                    <Link to='/News' onClick={()=>{dispatch(title('News')); removeDrop()}}>
+                    <Link to='/News' onClick={()=>{let hamburger = document.querySelector('.hamburger');hamburger.classList.add('display');removeDrop()}}>
                         <li id='news'><ChromeReaderModeIcon/><p>News</p></li>   
                     </Link>
                 </ul>
